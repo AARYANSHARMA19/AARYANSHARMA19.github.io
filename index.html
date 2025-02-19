@@ -13,14 +13,17 @@
             color: white;
             text-align: center;
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
         header {
             padding: 20px;
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
             animation: fadeInDown 1s;
         }
@@ -29,38 +32,43 @@
             justify-content: center;
             gap: 15px;
             list-style: none;
+            padding: 0;
         }
         nav a {
             color: #ffcc00;
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.2s;
         }
         nav a:hover {
             color: #ff6600;
+            transform: scale(1.1);
         }
-        .fade-in {
+        section {
+            min-height: 100vh;
+            padding: 100px 20px;
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s ease-in-out;
         }
-        .fade-in.show {
+        section.show {
             opacity: 1;
             transform: translateY(0);
         }
-        .certifications-grid {
+        .certifications-grid, .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             padding: 20px;
         }
-        .cert-card {
+        .cert-card, .skill-card {
             background: rgba(255, 255, 255, 0.1);
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
         }
-        .cert-card:hover {
+        .cert-card:hover, .skill-card:hover {
             transform: scale(1.05);
         }
         @keyframes fadeInDown {
@@ -95,6 +103,38 @@
         <p>Passionate about technology and innovation, I specialize in software development, bioinformatics research, and mentoring. I am currently pursuing a Bachelor's degree in Computer Science & Engineering at the University of Debrecen.</p>
     </section>
     
+    <section id="experience" class="fade-in">
+        <h2>Experience</h2>
+        <div class="timeline">
+            <div class="event">
+                <h3>Java Trainee - NIX Europe (Jul 2024 - Present)</h3>
+                <p>Mastered Git, Maven, Spring framework, and unit testing.</p>
+                <p>Studied web technologies including Servlets, JSP, JPA/Hibernate, and Spring Security.</p>
+            </div>
+            <div class="event">
+                <h3>Bioinformatics Research Intern - Debreceni Egyetem (Jul 2024 - Sept 2024)</h3>
+                <p>Conducted advanced programming and data analysis using Python and R.</p>
+                <p>Utilized Docker, Slurm, and Linux-based systems for research software benchmarking.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="fade-in">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">Python</div>
+            <div class="skill-card">Java</div>
+            <div class="skill-card">Git & GitHub</div>
+            <div class="skill-card">Docker</div>
+            <div class="skill-card">Maven</div>
+            <div class="skill-card">Spring Framework</div>
+            <div class="skill-card">MySQL</div>
+            <div class="skill-card">JPA/Hibernate</div>
+            <div class="skill-card">RESTful APIs</div>
+            <div class="skill-card">Linux</div>
+        </div>
+    </section>
+    
     <section id="certifications" class="fade-in">
         <h2>Certifications</h2>
         <div class="certifications-grid">
@@ -113,7 +153,7 @@
     
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll(".fade-in");
+            const sections = document.querySelectorAll("section");
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
