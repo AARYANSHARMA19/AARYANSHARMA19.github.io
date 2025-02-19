@@ -6,6 +6,74 @@
     <title>Aaryan Sharma | Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #1e1e2f, #3a3a60);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInDown 1s;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+        }
+        nav a {
+            color: #ffcc00;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ff6600;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-in-out;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .cert-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        .cert-card:hover {
+            transform: scale(1.05);
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -27,30 +95,6 @@
         <p>Passionate about technology and innovation, I specialize in software development, bioinformatics research, and mentoring. I am currently pursuing a Bachelor's degree in Computer Science & Engineering at the University of Debrecen.</p>
     </section>
     
-    <section id="experience" class="fade-in">
-        <h2>Experience</h2>
-        <div class="timeline">
-            <div class="event">
-                <h3>Java Trainee - NIX Learning & Development Center</h3>
-                <p>Mastered Git, Maven, Spring framework, and unit testing.</p>
-            </div>
-            <div class="event">
-                <h3>Bioinformatics Research Intern - Debreceni Egyetem</h3>
-                <p>Worked with Python, R, Docker, and Slurm for research software.</p>
-            </div>
-        </div>
-    </section>
-    
-    <section id="skills" class="fade-in">
-        <h2>Technical Skills</h2>
-        <div class="skill-chart">
-            <div class="skill">Python <div class="bar" style="width: 90%"></div></div>
-            <div class="skill">Java <div class="bar" style="width: 85%"></div></div>
-            <div class="skill">Git <div class="bar" style="width: 80%"></div></div>
-            <div class="skill">Docker <div class="bar" style="width: 75%"></div></div>
-        </div>
-    </section>
-    
     <section id="certifications" class="fade-in">
         <h2>Certifications</h2>
         <div class="certifications-grid">
@@ -67,11 +111,18 @@
         </div>
     </section>
     
-    <section id="contact" class="fade-in">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:aaryansrma19@gmail.com">aaryansrma19@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/AARYANSHARMA19" target="_blank">AARYANSHARMA19</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/aaryan-sharma-6a802b1bb/" target="_blank">Aaryan Sharma</a></p>
-    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".fade-in");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.3 });
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
