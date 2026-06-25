@@ -1,0 +1,53 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Scaffold Vite + React + TypeScript + Tailwind CSS + Framer Motion project and implement the complete portfolio with all sections, animations, and responsive design. This is the full portfolio rebuild in a single feature since all sections are interdependent (shared layout, navigation, theme).",
+  "status": "in_progress",
+  "steps": [
+    "Initialize a Vite React TypeScript project in the repo root. Create package.json with dependencies: react, react-dom, framer-motion, react-icons. DevDependencies: vite, @vitejs/plugin-react, typescript, tailwindcss, postcss, autoprefixer, @types/react, @types/react-dom.",
+    "Create vite.config.ts configured for GitHub Pages deployment (base: '/' since this is a user site at username.github.io). Output directory should be 'dist'.",
+    "Create tailwind.config.js with custom theme extending colors (primary: '#00ff88', secondary: '#060606', background: '#0a0a0a', card: '#1a1a1a', accent: '#00ccff'), fonts (Space Grotesk as sans), and responsive breakpoints.",
+    "Create postcss.config.js, src/index.css with Tailwind directives (@tailwind base/components/utilities) and custom global styles (smooth scrolling, scrollbar styling, base dark theme).",
+    "Create src/main.tsx (entry point mounting App), src/App.tsx (main layout with Navbar + all sections in order: Hero, About, Skills, Experience, Projects, Education, Certifications, Contact + Footer).",
+    "Create src/components/Navbar.tsx - Fixed top navigation with frosted glass effect (backdrop-blur), smooth scroll links to all sections, mobile hamburger menu with animated open/close, active section highlighting using IntersectionObserver.",
+    "Create src/components/Hero.tsx - Full viewport height hero with: profile photo (photo.png from public/) in a circular frame with animated gradient border, name with gradient text animation, tagline with typewriter or fade-in effect, animated scroll-down indicator. Use Framer Motion for entrance animations (staggered children).",
+    "Create src/components/About.tsx - Professional summary section with brief bio text drawn from the ReadMe.md content (building GPU-accelerated ML pipelines, looking to collaborate on generative AI/Java microservices/bioinformatics). Include animated stat counters or highlights.",
+    "Create src/components/Skills.tsx - Skills organized into categories (Programming Languages, Frameworks & Tools, Data & AI, DevOps) displayed as animated cards or pill badges. Each category card has hover effects (scale, glow, border color change). Use staggered reveal animation on scroll.",
+    "Create src/components/Experience.tsx - Vertical timeline layout with alternating left/right cards on desktop, single column on mobile. Each card has: role title, company, dates, location, bullet points. Cards animate in from left/right using Framer Motion whileInView. Timeline line draws progressively on scroll.",
+    "Create src/components/Projects.tsx - Project cards section. Include 2-3 project cards based on the user's work: (1) GPU-Accelerated ML Pipeline for Bioinformatics (Python, NVIDIA cuDF/cuML, Docker), (2) Personal Portfolio Website (React, Tailwind, Framer Motion), (3) Java Microservices Training Project (Java, Spring, Maven, JUnit). Cards have hover tilt effect and tech stack tags.",
+    "Create src/components/Education.tsx - Education timeline or card layout showing University of Debrecen (BSc CS&E, 2021-Present) and MPS International School (PCM, 2018-2020, 92.6%). Animate cards on scroll entry.",
+    "Create src/components/Certifications.tsx - Grid of certification cards with issuer logo/icon, cert name, date. Group by issuer (NVIDIA x5, Microsoft x1, University x1). Cards have shine/gradient hover effect similar to existing cert-card styling.",
+    "Create src/components/Contact.tsx - Contact section with email, GitHub, LinkedIn links as animated icon buttons with hover effects. Include a subtle CTA message. Link to resume PDF download.",
+    "Create src/components/Footer.tsx - Simple footer with copyright, back-to-top button with smooth scroll.",
+    "Move photo.png to public/photo.png and Aaryan_Sharma_Java_HU.pdf to public/Aaryan_Sharma_Java_HU.pdf so Vite includes them in the build.",
+    "Implement accessibility (A11y): semantic HTML (header, main, section, footer, nav), aria-labels on icon links, proper heading hierarchy (h1 in hero, h2 for sections), skip-to-content link, focus-visible outlines, color contrast meeting WCAG AA, prefers-reduced-motion media query that disables animations.",
+    "Implement responsive design: mobile-first approach, breakpoints at sm(640px), md(768px), lg(1024px). Test that navigation collapses, timeline goes single-column, grids adapt, text sizes scale.",
+    "Implement dark mode toggle (localStorage persisted) with smooth theme transition. Default is dark. Light mode uses inverted colors that maintain contrast ratios.",
+    "Add prefers-reduced-motion support: wrap all Framer Motion animations in a check, reduce or disable animations when user prefers reduced motion.",
+    "Create a proper README.md documenting: project overview, tech stack choices and justification, setup instructions (npm install), development (npm run dev), build (npm run build), deployment to GitHub Pages, project structure explanation, phased plan (MVP delivered, future enhancements listed).",
+    "Update the root index.html to be the Vite entry point (standard Vite index.html with <div id='root'></div> and <script type='module' src='/src/main.tsx'></script>). Remove the old inline portfolio content.",
+    "Ensure the build produces working static files: run npm run build and verify dist/index.html exists with proper asset references."
+  ],
+  "acceptance_criteria": [
+    "npm install completes without errors",
+    "npm run build completes without errors and produces dist/ with index.html + JS/CSS assets",
+    "All 8 portfolio sections are present: Hero, About, Skills, Experience, Projects, Education, Certifications, Contact",
+    "photo.png is displayed in the Hero or About section",
+    "At least 3 distinct interactive animations are implemented: (1) entrance/scroll-reveal transitions, (2) hover effects on cards/links, (3) smooth scroll between sections",
+    "Navigation links scroll to correct sections",
+    "Mobile responsive: hamburger menu appears on small screens, layouts adapt",
+    "Dark mode toggle works and persists in localStorage",
+    "prefers-reduced-motion is respected",
+    "Semantic HTML with proper aria-labels on icon links",
+    "README.md contains setup, run, and build instructions"
+  ],
+  "verification": [
+    "Run 'npm install' and confirm exit code 0",
+    "Run 'npm run build' and confirm exit code 0",
+    "Verify dist/index.html exists and contains <div id=\"root\">",
+    "Verify dist/assets/ contains JS and CSS bundles",
+    "Verify public/photo.png is referenced and accessible in the build"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
