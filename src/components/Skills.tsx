@@ -7,24 +7,29 @@ interface SkillsProps {
 
 const skillCategories = [
   {
-    title: 'Programming Languages',
-    skills: ['Python', 'Java', 'C/C++', 'R', 'MATLAB'],
+    title: 'Languages',
+    skills: ['Java', 'Python', 'SQL', 'JavaScript'],
     color: 'from-primary to-emerald-400',
   },
   {
-    title: 'Frameworks & Web',
-    skills: ['Spring MVC', 'JSP', 'REST APIs', 'SQL', 'React'],
+    title: 'Backend & APIs',
+    skills: ['Spring Boot', 'REST API Design', 'Microservices', 'SparkJava', 'Spock', 'TDD', 'Unit & Integration Testing'],
     color: 'from-accent to-blue-400',
   },
   {
-    title: 'Data & AI',
-    skills: ['NVIDIA cuDF/cuML', 'Machine Learning', 'Deep Learning', 'Data Pipelines', 'Computer Vision'],
+    title: 'DevOps & Cloud',
+    skills: ['Docker', 'CI/CD (GitHub Actions, Azure DevOps)', 'Git', 'Agile Scrum'],
     color: 'from-purple-500 to-pink-500',
   },
   {
-    title: 'DevOps & Tools',
-    skills: ['Git/GitHub', 'Docker', 'Maven', 'Linux', 'Slurm HPC'],
+    title: 'Databases & Data',
+    skills: ['PostgreSQL', 'MySQL', 'Redis', 'jOOQ', 'Pandas', 'NumPy'],
     color: 'from-orange-500 to-yellow-500',
+  },
+  {
+    title: 'Practices',
+    skills: ['Log-based Debugging', 'Root-cause Analysis', 'Code Validation', 'Technical Documentation'],
+    color: 'from-rose-500 to-red-400',
   },
 ]
 

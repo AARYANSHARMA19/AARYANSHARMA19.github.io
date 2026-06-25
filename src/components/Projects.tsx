@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiExternalLink, FiGithub, FiLock } from 'react-icons/fi'
+import { FiExternalLink, FiGithub } from 'react-icons/fi'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
 interface ProjectsProps {
@@ -8,26 +8,23 @@ interface ProjectsProps {
 
 const projects = [
   {
-    title: 'GPU-Accelerated ML Pipeline for Bioinformatics',
-    description:
-      'Built a high-performance machine learning pipeline leveraging NVIDIA cuDF and cuML for GPU-accelerated data processing and model training on large-scale bioinformatics datasets.',
-    tech: ['Python', 'NVIDIA cuDF', 'NVIDIA cuML', 'Docker', 'CUDA'],
-    private: true,
+    title: 'PayFlow - Payment Processing & Fraud-Detection API',
+    description: [
+      'Built a Spring Boot payments service with idempotent endpoints and a pluggable, rule-based fraud engine returning APPROVE / REVIEW / DECLINE.',
+      'Implemented rate limiting and event publishing behind interfaces with in-memory defaults and Redis / Kafka implementations selected by Spring profile; secured endpoints with stateless JWT authentication.',
+      'Achieved ~88% line coverage (JaCoCo) across 20 JUnit and Spock tests under a TDD workflow; containerized with Docker Compose and automated build and test via a GitHub Actions CI pipeline.',
+    ],
+    tech: ['Java 17', 'Spring Boot', 'PostgreSQL', 'Redis', 'Kafka', 'Docker'],
+    github: 'https://github.com/AARYANSHARMA19/payflow',
   },
   {
-    title: 'Personal Portfolio Website',
-    description:
-      'Modern, responsive portfolio built with React, Tailwind CSS, and Framer Motion. Features smooth animations, dark/light mode, and accessible design following WCAG guidelines.',
-    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vite'],
-    github: 'https://github.com/AARYANSHARMA19/AARYANSHARMA19.github.io',
-    live: 'https://aaryansharma19.github.io',
-  },
-  {
-    title: 'Java Microservices Training Project',
-    description:
-      'Developed microservice-based applications as part of intensive Java training. Implemented REST APIs, unit testing with JUnit, and CI/CD pipelines with Maven.',
-    tech: ['Java', 'Spring', 'Maven', 'JUnit', 'REST APIs'],
-    private: true,
+    title: 'Expense Tracker REST API - CRUD & Spend Analytics',
+    description: [
+      'Built a JWT-secured REST API with full CRUD and a category-spend summary endpoint, enforcing per-user data isolation and request validation; backed by PostgreSQL with H2 for zero-dependency local runs.',
+      'Achieved ~93% line coverage (JaCoCo) across 13 JUnit and Spring MockMvc tests; multi-stage Docker build automated through a GitHub Actions CI pipeline.',
+    ],
+    tech: ['Java 17', 'Spring Boot', 'PostgreSQL', 'JUnit', 'Docker'],
+    github: 'https://github.com/AARYANSHARMA19/expense-tracker',
   },
 ]
 
@@ -66,7 +63,7 @@ function Projects({ darkMode }: ProjectsProps) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {projects.map((project) => (
             <motion.div
@@ -78,9 +75,14 @@ function Projects({ darkMode }: ProjectsProps) {
               <h3 className={`text-lg font-bold mb-3 group-hover:text-primary transition-colors ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 {project.title}
               </h3>
-              <p className={`text-sm flex-grow mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                {project.description}
-              </p>
+              <ul className={`text-sm flex-grow mb-4 space-y-2 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                {project.description.map((point, i) => (
+                  <li key={i} className="flex items-start">
+                    <span className="text-primary mr-2 mt-0.5 flex-shrink-0">&#9656;</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((t) => (
                   <span
@@ -92,40 +94,26 @@ function Projects({ darkMode }: ProjectsProps) {
                 ))}
               </div>
               <div className="flex gap-3">
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-1.5 text-sm transition-colors hover:text-primary ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
-                    aria-label={`View ${project.title} on GitHub (opens in new tab)`}
-                  >
-                    <FiGithub className="w-4 h-4" />
-                    Code
-                  </a>
-                )}
-                {project.private && (
-                  <span
-                    className={`flex items-center gap-1.5 text-sm cursor-default ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}
-                    title="Repository is private or in progress"
-                    aria-label={`${project.title} source code is private`}
-                  >
-                    <FiLock className="w-4 h-4" />
-                    Private
-                  </span>
-                )}
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-1.5 text-sm transition-colors hover:text-primary ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
-                    aria-label={`View ${project.title} live demo (opens in new tab)`}
-                  >
-                    <FiExternalLink className="w-4 h-4" />
-                    Live
-                  </a>
-                )}
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-1.5 text-sm transition-colors hover:text-primary ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
+                  aria-label={`View ${project.title} on GitHub (opens in new tab)`}
+                >
+                  <FiGithub className="w-4 h-4" />
+                  Code
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-1.5 text-sm transition-colors hover:text-primary ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
+                  aria-label={`View ${project.title} repository (opens in new tab)`}
+                >
+                  <FiExternalLink className="w-4 h-4" />
+                  View
+                </a>
               </div>
             </motion.div>
           ))}

@@ -43,20 +43,16 @@ function About({ darkMode }: AboutProps) {
             className={`glass-card p-8 ${darkMode ? '' : 'bg-gray-50 border-gray-200'}`}
           >
             <p className={`text-lg leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              I am a Computer Science &amp; Engineering student at the University of Debrecen, passionate about
-              building scalable software and leveraging AI for real-world applications. Currently, I am building a
-              GPU-accelerated ML pipeline using NVIDIA&apos;s cuDF and cuML libraries for bioinformatics research.
-            </p>
-            <p className={`text-lg leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-              I am looking to collaborate on projects involving generative AI, Java microservices, and bioinformatics
-              tools. My current learning focus includes Advanced Spring Framework and diffusion models for generative AI.
+              Computer Science graduate and backend-focused engineer who ships production services end-to-end - from
+              Java and Spring Boot microservices to automated CI/CD delivery. Strong in REST API design, test-driven
+              development, and debugging under real conditions within Agile teams.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
               {[
-                { label: 'Experience', value: 'Java & Python' },
-                { label: 'Focus', value: 'AI & ML' },
-                { label: 'Education', value: 'BSc CS&E' },
-                { label: 'Location', value: 'Hungary' },
+                { label: 'Backend', value: 'Java & Spring' },
+                { label: 'DevOps', value: 'CI/CD & Docker' },
+                { label: 'Education', value: 'BSc CS - 4.2/5.0' },
+                { label: 'Location', value: 'Budapest, HU' },
               ].map((item) => (
                 <div
                   key={item.label}
