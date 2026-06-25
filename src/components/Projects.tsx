@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiExternalLink, FiGithub, FiLock } from 'react-icons/fi'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
 interface ProjectsProps {
@@ -12,7 +12,7 @@ const projects = [
     description:
       'Built a high-performance machine learning pipeline leveraging NVIDIA cuDF and cuML for GPU-accelerated data processing and model training on large-scale bioinformatics datasets.',
     tech: ['Python', 'NVIDIA cuDF', 'NVIDIA cuML', 'Docker', 'CUDA'],
-    github: 'https://github.com/AARYANSHARMA19',
+    private: true,
   },
   {
     title: 'Personal Portfolio Website',
@@ -27,7 +27,7 @@ const projects = [
     description:
       'Developed microservice-based applications as part of intensive Java training. Implemented REST APIs, unit testing with JUnit, and CI/CD pipelines with Maven.',
     tech: ['Java', 'Spring', 'Maven', 'JUnit', 'REST APIs'],
-    github: 'https://github.com/AARYANSHARMA19',
+    private: true,
   },
 ]
 
@@ -103,6 +103,16 @@ function Projects({ darkMode }: ProjectsProps) {
                     <FiGithub className="w-4 h-4" />
                     Code
                   </a>
+                )}
+                {project.private && (
+                  <span
+                    className={`flex items-center gap-1.5 text-sm cursor-default ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}
+                    title="Repository is private or in progress"
+                    aria-label={`${project.title} source code is private`}
+                  >
+                    <FiLock className="w-4 h-4" />
+                    Private
+                  </span>
                 )}
                 {project.live && (
                   <a
