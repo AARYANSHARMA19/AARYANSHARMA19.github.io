@@ -1,0 +1,37 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Update all portfolio component content to match the latest resume (MyResume/Aaryan_Sharma_Resume.tex) with all links working correctly",
+  "status": "in_progress",
+  "steps": [
+    "Update src/components/Hero.tsx: Change tagline from 'Computer Science & Engineering Student || Java Developer || AI Enthusiast' to 'Backend-Focused Engineer || Java & Spring Boot || CI/CD & DevOps'. Keep all animation logic unchanged.",
+    "Update src/components/About.tsx: Replace the two paragraphs with the professional summary from resume: 'Computer Science graduate and backend-focused engineer who ships production services end-to-end - from Java and Spring Boot microservices to automated CI/CD delivery. Strong in REST API design, test-driven development, and debugging under real conditions within Agile teams.' Update the quick stats grid to reflect: Backend (Java & Spring), DevOps (CI/CD & Docker), Education (BSc CS - 4.2/5.0), Location (Budapest, HU).",
+    "Update src/components/Skills.tsx: Replace skillCategories array with these 5 categories from resume: (1) Languages: Java, Python, SQL, JavaScript; (2) Backend & APIs: Spring Boot, REST API design, Microservices, SparkJava, Spock, TDD, Unit & Integration Testing; (3) DevOps & Cloud: Docker, CI/CD (GitHub Actions, Azure DevOps), Git, Agile Scrum; (4) Databases & Data: PostgreSQL, MySQL, Redis, jOOQ, Pandas, NumPy; (5) Practices: Log-based debugging, Root-cause analysis, Code validation, Technical documentation.",
+    "Update src/components/Experience.tsx: Replace experiences array with 3 roles from resume: (1) DevOps Trainee at NIX, Budapest, Feb 2025 - Feb 2026, with 3 bullet points about CI/CD pipelines, Docker containerization, and post-deployment issue resolution; (2) Java Trainee, Backend at NIX, Budapest, Jul 2024 - Jan 2025, with 3 bullet points about microservices dev, REST API endpoints, and root-cause analysis; (3) Bioinformatics Research Intern at University of Debrecen, Jul 2024 - Sep 2024, with 1 bullet point about Python data pipelines.",
+    "Update src/components/Projects.tsx: Replace projects array with 2 real projects WITH WORKING GITHUB LINKS: (1) PayFlow - Payment Processing & Fraud-Detection API, link: https://github.com/AARYANSHARMA19/payflow, tech: Java 17, Spring Boot, PostgreSQL, Redis, Kafka, Docker, with 3 bullet points from resume; (2) Expense Tracker REST API - CRUD & Spend Analytics, link: https://github.com/AARYANSHARMA19/expense-tracker, tech: Java 17, Spring Boot, PostgreSQL, JUnit, Docker, with 2 bullet points from resume. Remove all private/locked projects. Each project must have a clickable GitHub link.",
+    "Update src/components/Education.tsx: Replace education array with single entry: BSc Computer Science & Engineering at University of Debrecen, Hungary, Sep 2021 - Jan 2026. Add CGPA: 4.2 / 5.0 (equivalent to a UK upper-second / 2:1). Add Coursework: Data Structures & Algorithms, Operating Systems, Computer Networks, Database Systems, IT Security, Intro to AI. Remove the MPS International School entry.",
+    "Update src/components/Certifications.tsx: Replace certifications array with ALL certs from resume, each with a clickable verification link where available. Group into: Professional & Cloud section (Microsoft Azure Data Fundamentals DP-900, IT Specialist - Software Development, IT Specialist - Java, IT Specialist - HTML & CSS) and NVIDIA Deep Learning Institute section (Building Agentic AI Applications with LLMs - link: https://learn.nvidia.com/certificates?id=GBSCSv-FTSK-1fURVkUaKA, Fundamentals of Deep Learning - link: https://learn.nvidia.com/certificates?id=1tO0Ys3ITkGJkXM3sgBKrQ, Generative AI with Diffusion Models - no link, Computer Vision for Industrial Inspection - link: https://learn.nvidia.com/certificates?id=PV8c_jE3QomEE0TyJpgd5g, Predictive Maintenance - link: https://learn.nvidia.com/certificates?id=38XtOjStR1qLXwTBdn0PuA, Anomaly Detection - link: https://learn.nvidia.com/certificates?id=tsySqX7jSfWy5q22OMI6hw, Accelerating Data Engineering Pipelines - link: https://learn.nvidia.com/certificates?id=o5JCS_LbT9ahWTcuP48UHQ, Fundamentals of Accelerated Data Science - link: https://learn.nvidia.com/certificates?id=P7Hq1rEUS6OwvnVGGaNDow). Add a clickable 'Verify' link/icon for certs that have verification URLs.",
+    "Update src/components/Contact.tsx: Add phone number (+36 70 200 2683) to contactLinks array with appropriate icon. Ensure email (aaryansrma19@gmail.com), GitHub (https://github.com/aaryansharma19), and LinkedIn (https://linkedin.com/in/aaryan-sharma-6a802b1bb) links are correct and working. Also add portfolio link (https://aaryansharma19.github.io).",
+    "Verify the build passes with: npm run build"
+  ],
+  "acceptance_criteria": [
+    "npm run build completes successfully with no TypeScript errors",
+    "Hero tagline reflects backend/DevOps focus",
+    "About section contains the professional summary from latest resume",
+    "Skills section has 5 categories matching resume exactly",
+    "Experience section has 3 roles: DevOps Trainee, Java Trainee Backend, Bioinformatics Research Intern",
+    "Projects section has 2 projects (PayFlow and Expense Tracker) with clickable GitHub links",
+    "Education shows BSc CS&E at Uni of Debrecen with CGPA and coursework",
+    "Certifications lists all certs with clickable verification links where available",
+    "Contact section includes phone number, email, GitHub, LinkedIn with correct URLs",
+    "All external links use target='_blank' and rel='noopener noreferrer'"
+  ],
+  "verification": [
+    "Run npm run build and confirm zero errors",
+    "Grep for all GitHub project links to confirm they are present: payflow, expense-tracker",
+    "Grep for all NVIDIA certificate links to confirm they are present",
+    "Grep for phone number +36 70 200 2683 to confirm it is in Contact component"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

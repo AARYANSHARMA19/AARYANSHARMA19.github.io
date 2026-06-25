@@ -1,0 +1,27 @@
+{
+  "project_type": "React 18 + TypeScript + Vite portfolio website with Tailwind CSS and Framer Motion",
+  "language": "TypeScript/TSX",
+  "build_system": "Vite with TypeScript compilation (tsc + vite build)",
+  "test_framework": "No test framework configured - validation via build only",
+  "build_command": "npm run build",
+  "test_command": "npm run build (no separate test command)",
+  "verification_instructions": "Run npm run build to ensure TypeScript compiles and Vite bundles successfully",
+  "snapshot_or_generated_files": "dist/ directory is generated but gitignored",
+  "setup_instructions": "npm install (node_modules already present)",
+  "environment_constraints": "OPEN_INTERNET - full network access. Node.js 22 available. npm available.",
+  "contribution_requirements": "Push to origin/main triggers GitHub Pages deployment via .github/workflows/deploy.yml",
+  "key_patterns": "Components use darkMode prop, framer-motion for animations, useReducedMotion hook for accessibility. Data arrays at top of component files. Icons from react-icons (fi, hi, si, vsc, bs prefixes).",
+  "relevant_files": [
+    "src/components/Hero.tsx - tagline and CTA buttons",
+    "src/components/About.tsx - professional summary and quick stats",
+    "src/components/Skills.tsx - skill categories with arrays",
+    "src/components/Experience.tsx - work experience timeline",
+    "src/components/Projects.tsx - featured projects with GitHub links",
+    "src/components/Education.tsx - education entries",
+    "src/components/Certifications.tsx - certification cards",
+    "src/components/Contact.tsx - contact links with icons",
+    "src/components/Footer.tsx - copyright footer",
+    "src/components/Navbar.tsx - navigation links"
+  ],
+  "directory_structure": "src/components/ has all section components. src/hooks/ has useReducedMotion. public/ has resume PDF and photo. .github/workflows/ has deploy.yml."
+}

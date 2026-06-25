@@ -1,0 +1,7 @@
+{
+  "task_id": "task-update-portfolio-content",
+  "task_description": "Update all portfolio website content to match the latest resume, ensure all links work, and prepare for deployment to GitHub Pages at https://aaryansharma19.github.io/",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001"],
+  "blocked_reason": null
+}

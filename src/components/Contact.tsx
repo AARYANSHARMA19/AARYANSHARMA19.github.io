@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FiMail, FiGithub, FiLinkedin, FiDownload } from 'react-icons/fi'
+import { FiMail, FiGithub, FiLinkedin, FiDownload, FiGlobe, FiPhone } from 'react-icons/fi'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
 interface ContactProps {
@@ -14,16 +14,28 @@ const contactLinks = [
     label: 'aaryansrma19@gmail.com',
   },
   {
+    name: 'Phone',
+    href: 'tel:+36702002683',
+    Icon: FiPhone,
+    label: '+36 70 200 2683',
+  },
+  {
     name: 'GitHub',
-    href: 'https://github.com/AARYANSHARMA19',
+    href: 'https://github.com/aaryansharma19',
     Icon: FiGithub,
-    label: 'AARYANSHARMA19',
+    label: 'aaryansharma19',
   },
   {
     name: 'LinkedIn',
     href: 'https://linkedin.com/in/aaryan-sharma-6a802b1bb',
     Icon: FiLinkedin,
     label: 'aaryan-sharma-6a802b1bb',
+  },
+  {
+    name: 'Portfolio',
+    href: 'https://aaryansharma19.github.io',
+    Icon: FiGlobe,
+    label: 'aaryansharma19.github.io',
   },
 ]
 
@@ -64,8 +76,8 @@ function Contact({ darkMode }: ContactProps) {
             variants={itemVariants}
             className={`text-lg mb-10 max-w-2xl mx-auto ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
           >
-            I am always open to discussing new projects, research collaborations,
-            or opportunities in software development and AI.
+            I am always open to discussing new projects, collaborations,
+            or opportunities in backend development and DevOps.
           </motion.p>
 
           <motion.div
@@ -76,14 +88,14 @@ function Contact({ darkMode }: ContactProps) {
               <a
                 key={link.name}
                 href={link.href}
-                target={link.name !== 'Email' ? '_blank' : undefined}
-                rel={link.name !== 'Email' ? 'noopener noreferrer' : undefined}
+                target={link.name !== 'Email' && link.name !== 'Phone' ? '_blank' : undefined}
+                rel={link.name !== 'Email' && link.name !== 'Phone' ? 'noopener noreferrer' : undefined}
                 className={`flex items-center gap-3 px-5 py-3 rounded-lg transition-all duration-300 group ${
                   darkMode
                     ? 'bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/5'
                     : 'bg-gray-50 border border-gray-200 hover:border-primary/50 hover:bg-primary/5'
                 }`}
-                aria-label={`${link.name}: ${link.label}${link.name !== 'Email' ? ' (opens in new tab)' : ''}`}
+                aria-label={`${link.name}: ${link.label}${link.name !== 'Email' && link.name !== 'Phone' ? ' (opens in new tab)' : ''}`}
               >
                 <link.Icon className={`w-5 h-5 transition-colors group-hover:text-primary ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
                 <span className={`text-sm font-medium transition-colors group-hover:text-primary ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>

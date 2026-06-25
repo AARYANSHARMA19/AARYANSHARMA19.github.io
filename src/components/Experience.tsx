@@ -7,27 +7,34 @@ interface ExperienceProps {
 
 const experiences = [
   {
-    role: 'Java Trainee',
-    company: 'NIX Europe',
+    role: 'DevOps Trainee',
+    company: 'NIX',
     location: 'Budapest, Hungary',
-    period: 'July 2024 - January 2025',
+    period: 'Feb 2025 - Feb 2026',
     description: [
-      'Completed intensive training in Git/GitHub version control and collaborative workflows',
-      'Gained proficiency in Maven build automation and dependency management',
-      'Developed expertise in JUnit testing and Behavior-Driven Development (BDD) methodologies',
-      'Applied Java development best practices in team-based project environments',
+      'Built and maintained CI/CD pipelines (GitHub Actions, Azure DevOps) automating build, test, and deploy for 6+ services, cutting deployment time from ~20 minutes to under 5 minutes.',
+      'Containerized 8 internal services with Docker, eliminating recurring environment-mismatch failures during releases.',
+      'Diagnosed and resolved 15+ post-deployment issues per sprint via log analysis, and authored 10+ runbooks that reduced repeat incidents.',
+    ],
+  },
+  {
+    role: 'Java Trainee, Backend',
+    company: 'NIX',
+    location: 'Budapest, Hungary',
+    period: 'Jul 2024 - Jan 2025',
+    description: [
+      'Developed and tested 5+ backend microservices in Java 17 and Spring Boot using a TDD approach, maintaining ~80% test coverage.',
+      'Shipped 20+ REST API endpoints and resolved 25+ bugs in production-facing services.',
+      'Root-caused application issues across dev and test environments by reproducing failures and analyzing logs.',
     ],
   },
   {
     role: 'Bioinformatics Research Intern',
-    company: 'Debreceni Egyetem',
+    company: 'University of Debrecen',
     location: 'Debrecen, Hungary',
-    period: 'July - September 2024',
+    period: 'Jul 2024 - Sep 2024',
     description: [
-      'Conducted computational biology research using Python and R',
-      'Managed and executed workflows on Linux-based HPC clusters using Slurm',
-      'Containerized research pipelines using Docker for reproducible analysis',
-      'Developed data processing scripts for large-scale genomic datasets',
+      'Built Python data pipelines (Pandas, NumPy) to process 10,000+ records, automating manual data handling and adding validation checks; documented 6+ reproducible workflows.',
     ],
   },
 ]

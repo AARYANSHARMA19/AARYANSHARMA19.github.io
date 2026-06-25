@@ -10,16 +10,10 @@ const education = [
   {
     institution: 'University of Debrecen',
     degree: 'BSc in Computer Science & Engineering',
-    period: '2021 - Present',
+    period: 'Sep 2021 - Jan 2026',
     location: 'Debrecen, Hungary',
-    details: 'Focusing on software engineering, artificial intelligence, and bioinformatics research.',
-  },
-  {
-    institution: 'MPS International School',
-    degree: 'Higher Secondary (PCM)',
-    period: '2018 - 2020',
-    location: 'India',
-    details: 'Physics, Chemistry, Mathematics. Achieved 92.6% aggregate score.',
+    cgpa: '4.2 / 5.0 (equivalent to a UK upper-second / 2:1)',
+    coursework: 'Data Structures & Algorithms, Operating Systems, Computer Networks, Database Systems, IT Security, Intro to AI',
   },
 ]
 
@@ -77,7 +71,12 @@ function Education({ darkMode }: EducationProps) {
                 </div>
                 <p className="text-primary font-medium text-sm mb-1">{edu.degree}</p>
                 <p className={`text-sm mb-1 ${darkMode ? 'text-gray-500' : 'text-gray-500'}`}>{edu.location}</p>
-                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>{edu.details}</p>
+                <p className={`text-sm mb-1 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <span className="font-medium">CGPA:</span> {edu.cgpa}
+                </p>
+                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <span className="font-medium">Coursework:</span> {edu.coursework}
+                </p>
               </div>
             </motion.div>
           ))}

@@ -68,9 +68,9 @@ function Hero({ darkMode }: HeroProps) {
           variants={itemVariants}
           className={`text-lg md:text-xl lg:text-2xl font-light mb-8 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}
         >
-          Computer Science &amp; Engineering Student{' '}
-          <span className="text-primary">||</span> Java Developer{' '}
-          <span className="text-primary">||</span> AI Enthusiast
+          Backend-Focused Engineer{' '}
+          <span className="text-primary">||</span> Java &amp; Spring Boot{' '}
+          <span className="text-primary">||</span> CI/CD &amp; DevOps
         </motion.p>
 
         {/* CTA buttons */}
